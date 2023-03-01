@@ -1,0 +1,16 @@
+body {
+    background-color: #ffe6c7;
+}
+
+.card img {
+    height: 35vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}

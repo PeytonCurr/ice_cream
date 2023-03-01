@@ -12,9 +12,9 @@
 
     <title>Peyton's Creamery 🍦</title>
 
-    <style>
+    <!-- <style>
         * {
-            min-height: 2 vh;
+            min-height: 5vh;
         }
 
         body.debug .container,
@@ -32,12 +32,104 @@
             outline: 2px dotted forestgreen;
             outline-offset: -3px;
         }
-    </style>
+    </style> -->
 
 </head>
 
-<body>
+<body class="debug">
 
+    <header class="container-fluid bg-danger text-light">
+        <h1><i class="mdi mdi-ice-cream"></i> Peyton's Creamery</h1>
+    </header>
+
+    <main class="container-fluid">
+
+        <!-- SECTION Layout -->
+        <!-- #region -->
+        <section class="row">
+
+            <!-- STUB Food Side -->
+            <!-- #region -->
+            <div class="col-8">
+
+                <!-- SECTION Ice Cream Choices -->
+                <!-- #region -->
+                <section class="row justify-content-evenly g-3 p-3">
+                    <div class="col-4">
+                        <div class="card border-0 bg-danger text-center">
+                            <img src="https://celebratingsweets.com/wp-content/uploads/2014/04/Cookie-Dough-Ice-Cream-1-5.jpg"
+                                alt="Cookie Dough">
+                            <h4 class="text-light">Cookie Dough <b class="fs-3">$1</b></h4>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card border-0 bg-danger text-center">
+                            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ultimate-vanilla-ice-cream-1628511695.jpg"
+                                alt="Vanilla">
+                            <h4 class="text-light">Vanilla <b class="fs-3">$1</b></h4>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card border-0 bg-danger text-center">
+                            <img src="https://www.realfoodwithjessica.com/wp-content/uploads/2017/07/paleostrawberryicecream2.jpg"
+                                alt="Strawberry">
+                            <h4 class="text-light">Strawberry <b class="fs-3">$2</b></h4>
+                        </div>
+                    </div>
+                </section>
+                <!-- #endregion -->
+
+                <!-- SECTION Topping Choices -->
+                <!-- #region -->
+                <section class="row justify-content-evenly g-3 p-3">
+                    <div class="col-4">
+                        <div class="card border-0 bg-danger text-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Sprinkles2.jpg"
+                                alt="Sprinkles">
+                            <h4 class="text-light">Sprinkles <b class="fs-3">$1</b></h4>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card border-0 bg-danger text-center">
+                            <img src="https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/chocolate-chips.jpg?quality=82&strip=1&resize=640%2C360"
+                                alt="Chocolate Chips">
+                            <h4 class="text-light">Chocolate Chips <b class="fs-3">$2</b></h4>
+                        </div>
+                    </div>
+                </section>
+                <!-- #endregion -->
+
+                <!-- SECTION Container Choices -->
+                <!-- #region -->
+                <section class="row justify-content-evenly g-3 p-3">
+                    <div class="col-4">
+                        <div class="card border-0 bg-danger text-center">
+                            <img src="https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg" alt="Waffle Cone">
+                            <h4 class="text-light">Waffle Cone <b class="fs-3">$2</b></h4>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card border-0 bg-danger text-center">
+                            <img src="http://images.wbmason.com/350/L_JOY66050.jpg" alt="Waffle Bowl">
+                            <h4 class="text-light">Waffle Bowl <b class="fs-3">$4</b></h4>
+                        </div>
+                    </div>
+                </section>
+                <!-- #endregion -->
+
+            </div>
+            <!-- #endregion -->
+
+            <!-- STUB Food Side -->
+            <!-- #region -->
+            <div class="col-4"></div>
+            <!-- #endregion -->
+        </section>
+        <!-- #endregion -->
+
+    </main>
+
+    <footer class="container-fluid"></footer>
 
     <script src="app.js"></script>
 </body>

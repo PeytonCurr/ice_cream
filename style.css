@@ -14,3 +14,20 @@ body {
 .card:hover {
     transform: scale(1.02);
 }
+
+.cart:hover {
+    background-color: rgb(248, 249, 250);
+    color: rgb(220, 53, 69);
+}
+
+.fixed-header {
+    width: 50%;
+}
+
+.fixed-span {
+    width: 10%;
+}
+
+.fixed-big {
+    width: 20%;
+}

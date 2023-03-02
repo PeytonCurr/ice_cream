@@ -1,34 +1,137 @@
+// console.log(`hello from JavaScript`);
+
 const iceCream = [{
     name: 'Cookie Dough',
-    image: 'https://celebratingsweets.com/wp-content/uploads/2014/04/Cookie-Dough-Ice-Cream-1-5.jpg',
-    price: 1
+    price: 1,
+    quantity: 0
 }, {
     name: 'Vanilla',
-    image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ultimate-vanilla-ice-cream-1628511695.jpg',
-    price: 1
+    price: 1,
+    quantity: 0
 }, {
     name: 'Strawberry',
-    image: 'https://www.realfoodwithjessica.com/wp-content/uploads/2017/07/paleostrawberryicecream2.jpg',
-    price: 2
+    price: 2,
+    quantity: 0
 }]
 
 const toppings = [{
     name: 'Sprinkles',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Sprinkles2.jpg',
-    price: 1
+    price: 1,
+    quantity: 0
 }, {
     name: 'Chocolate Chips',
-    image: 'https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/chocolate-chips.jpg?quality=82&strip=1&resize=640%2C360',
-    price: 2
+    price: 2,
+    quantity: 0
 }]
 
 const containers = [{
     name: 'Waffle Cone',
-    image: 'https://m.media-amazon.com/images/I/71VNjBMakfL._SL1500_.jpg',
-    price: 2
+    price: 2,
+    quantity: 0
 }, {
     name: 'Waffle Bowl',
-    image: 'http://images.wbmason.com/350/L_JOY66050.jpg',
-    price: 4
+    price: 4,
+    quantity: 0
 }]
 
+function addIceCream(name) {
+    const flavor = iceCream.find(f => f.name == name)
+    flavor.quantity++
+    console.log(flavor.name)
+    console.log(`Flavor Choice`, flavor);
+
+    drawCart()
+}
+
+function addTopping(name) {
+    const flavor = toppings.find(f => f.name == name)
+    flavor.quantity++
+    console.log(flavor.name)
+    console.log(`Flavor Choice`, flavor);
+
+    drawCart()
+}
+
+function addContainer(name) {
+    const flavor = containers.find(f => f.name == name)
+    flavor.quantity++
+    console.log(flavor.name)
+    console.log(`Flavor Choice`, flavor);
+
+    drawCart()
+}
+
+function drawCart() {
+    console.log(`Drawing Cart`);
+    let total = 0
+    console.log('total', total);
+    let template = ``
+
+    iceCream.forEach(f => {
+        total += f.price * f.quantity
+
+        if (f.quantity) {
+            template += `
+            <div class="text-danger d-flex justify-content-between align-items-center">
+            <p onclick="remove(iceCream, ${f.name})"><i class="mdi mdi-delete"></i></P>
+            <h4 class="fixed-header">${f.name}</h4>
+            <span class="fixed-span">${f.quantity}</span>
+            <span class="fixed-span text-end">$${f.price}</span>
+            <span class="fixed-big text-end">$${(f.quantity * f.price).toFixed(2)}</span></div>
+        `
+        }
+
+    })
+    toppings.forEach(f => {
+        total += f.price * f.quantity
+
+        if (f.quantity) {
+            template += `
+            <div class="text-danger d-flex justify-content-between align-items-center">
+            <p onclick="remove(toppings, ${f.name})"><i class="mdi mdi-delete"></i></P>
+            <h4 class="fixed-header">${f.name}</h4>
+            <span class="fixed-span">${f.quantity}</span>
+            <span class="fixed-span text-end">$${f.price}</span>
+            <span class="fixed-big text-end">$${(f.quantity * f.price).toFixed(2)}</span></div>
+        `
+        }
+
+    })
+    containers.forEach(f => {
+        total += f.price * f.quantity
+
+        if (f.quantity) {
+            template += `
+            <div class="text-danger d-flex justify-content-between align-items-center">
+            <p onclick="remove(containers, ${f.name})"><i class="mdi mdi-delete"></i></P>
+            <h4 class="fixed-header">${f.name}</h4>
+            <span class="fixed-span">${f.quantity}</span>
+            <span class="fixed-span text-end">$${f.price}</span>
+            <span class="fixed-big text-end">$${(f.quantity * f.price).toFixed(2)}</span></div>
+        `
+        }
+
+    })
+
+    document.getElementById(`selection`).innerHTML = template
+    document.getElementById(`total`).innerText = total
+}
+
+function checkout() {
+    if (window.confirm(`Are you ready to checkout?`)) {
+        console.log(`checking out`);
+
+        iceCream.forEach(i => i.quantity = 0)
+        toppings.forEach(i => i.quantity = 0)
+        containers.forEach(i => i.quantity = 0)
+
+        drawCart();
+    }
+}
+
+function remove(type, name) {
+    const flavor = type.find(f => f.name == name)
+    flavor.quantity--
+
+    drawCart();
+}
